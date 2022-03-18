@@ -1,0 +1,85 @@
+{{ 'custom-collection.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'custom-collection.js' | asset_url | script_tag }}
+
+<div class="gradient page-width">
+    <div class="collection-tabs tab-wrap">
+        {%- if section.blocks.size > 0 -%}
+			{%- for block in section.blocks -%}
+				<input type="radio" name="tabs" id="tab-{{ block.settings.collection.title }}" {% if forloop.first == true %}	checked {%- endif -%}>
+				<div class="tab-label-content collection-handle" id="tab-{{ block.settings.collection.title }}-content"	data-collection-handle="{{ block.settings.collection.handle }}">
+					<label for="tab-{{ block.settings.collection.title }}">{{ block.settings.collection.title }}</label>
+				</div>
+			{%- endfor -%}
+        {%- endif -%}
+        <div class="slide" id="slide"></div>
+    </div>
+    <div class="mobile-collection-tabs">
+        <div class="select-box">
+            <div class="select-box-current" tabindex="1">
+                {%- if section.blocks.size > 0 -%}
+					{%- for block in section.blocks -%}
+						<div class="select-box-value">
+							<input class="select-box-input" type="radio" id={{forloop.index0}} value={{forloop.index}}
+								name="collection-category" {%- if forloop.first==true -%} checked {%- endif -%} />
+							<p class="select-box-input-text">{{block.settings.collection.title}}</p>
+						</div>
+					{%- endfor -%}
+                {%- endif -%}
+				{% render 'icon-down' %}
+            </div>
+            <ul class="select-box-list">
+                {%- if section.blocks.size > 0 -%}
+					{%- for block in section.blocks -%}
+						<li>
+							<label class="select-box-option collection-handle" for={{forloop.index0}}
+								data-collection-handle="{{ block.settings.collection.handle }}"
+								aria-hidden="aria-hidden">{{block.settings.collection.title}}</label>
+						</li>
+					{%- endfor -%}
+                {%- endif -%}
+            </ul>
+        </div>
+    </div>
+    <div id="collection-ajax-content"></div>
+</div>
+
+{% schema %}
+{
+	"name": "Custome Collection",
+	"tag": "section",
+	"class": "section custom-collection",
+	"max_blocks": 15,
+	"settings": [
+	],
+	"blocks": [
+		{
+			"type": "featured_collection",
+			"name": "Collection",
+			"settings": [
+				{
+					"type": "collection",
+					"id": "collection",
+					"label": "Collection"
+				}
+			]
+		}
+	],
+	"presets": [
+		{
+			"name": "Custom Collection",
+			"blocks": [
+				{
+					"type": "featured_collection"
+				},
+				{
+					"type": "featured_collection"
+				},
+				{
+					"type": "featured_collection"
+				}
+			]
+		}
+	]
+}
+{% endschema %}

@@ -1,0 +1,60 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-list-collections",
+      "disabled": true,
+      "settings": {
+        "title": "Collections",
+        "sort": "alphabetical",
+        "image_ratio": "square"
+      }
+    },
+    "164747951341875632": {
+      "type": "custom-collection",
+      "blocks": {
+        "1647479513bbdd43e4-0": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "all"
+          }
+        },
+        "1647479513bbdd43e4-1": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "bases"
+          }
+        },
+        "1647479513bbdd43e4-2": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "bedroom"
+          }
+        },
+        "5c5a57d1-bd74-4b40-af3b-fac898505829": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "bedding"
+          }
+        },
+        "093d5340-4d1e-42bb-bcbe-0310398bcebc": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "mattresses"
+          }
+        }
+      },
+      "block_order": [
+        "1647479513bbdd43e4-0",
+        "1647479513bbdd43e4-1",
+        "1647479513bbdd43e4-2",
+        "5c5a57d1-bd74-4b40-af3b-fac898505829",
+        "093d5340-4d1e-42bb-bcbe-0310398bcebc"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "164747951341875632"
+  ]
+}
